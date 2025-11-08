@@ -10,37 +10,79 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 40px;
-            background: #f5f5f5;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
         
         .copy-container {
             background: white;
             border-radius: 10px;
             padding: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .copy-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+        
+        .platform-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .platform-btn {
+            background: #f1f3f4;
+            border: 2px solid #dadce0;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .platform-btn:hover {
+            background: #e8eaed;
+            transform: scale(1.05);
+        }
+        
+        .platform-btn.active {
+            background: #4285f4;
+            color: white;
+            border-color: #4285f4;
         }
         
         .copy-button {
-            background: #4285f4;
+            background: linear-gradient(135deg, #4285f4, #34a853);
             color: white;
             border: none;
             padding: 15px 30px;
             font-size: 16px;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             width: 100%;
             margin-bottom: 15px;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(66, 133, 244, 0.3);
         }
         
         .copy-button:hover {
-            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4);
+        }
+        
+        .copy-button:active {
+            transform: translateY(0);
         }
         
         .copy-button.success {
-            background: #0f9d58;
+            background: linear-gradient(135deg, #0f9d58, #0d7d47);
         }
         
         .instruction {
@@ -50,13 +92,65 @@
             margin-top: 10px;
         }
         
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4285f4, #34a853);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4285f4;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #5f6368;
+            margin-top: 5px;
+        }
+        
         .document {
             background: white;
             padding: 50px 60px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             border-radius: 10px;
             line-height: 1.8;
             font-size: 11pt;
+            position: relative;
+        }
+        
+        .document::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4285f4, #34a853, #fbbc04, #ea4335);
         }
         
         #content h1 {
@@ -65,6 +159,12 @@
             text-align: center;
             margin-bottom: 10px;
             font-weight: bold;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         #content .subtitle {
@@ -82,6 +182,13 @@
             font-weight: bold;
             border-bottom: 2px solid #1a73e8;
             padding-bottom: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #content h2:hover {
+            color: #0d47a1;
+            border-bottom-color: #0d47a1;
         }
         
         #content h3 {
@@ -113,6 +220,11 @@
         #content li {
             margin: 6px 0;
             color: #202124;
+            transition: color 0.2s ease;
+        }
+        
+        #content li:hover {
+            color: #1a73e8;
         }
         
         #content code {
@@ -122,6 +234,13 @@
             font-family: 'Courier New', monospace;
             font-size: 10pt;
             color: #d93025;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        #content code:hover {
+            background: #e8eaed;
+            transform: scale(1.02);
         }
         
         #content .code-block {
@@ -134,6 +253,13 @@
             font-size: 10pt;
             color: #202124;
             overflow-x: auto;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        #content .code-block:hover {
+            border-color: #4285f4;
+            box-shadow: 0 2px 8px rgba(66, 133, 244, 0.2);
         }
         
         #content .warning {
@@ -142,6 +268,12 @@
             padding: 12px 15px;
             margin: 15px 0;
             border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        #content .warning:hover {
+            background: #fef3cd;
+            transform: translateX(5px);
         }
         
         #content .info-box {
@@ -150,6 +282,12 @@
             padding: 12px 15px;
             margin: 15px 0;
             border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        #content .info-box:hover {
+            background: #d2e3fc;
+            transform: translateX(5px);
         }
         
         #content strong {
@@ -164,6 +302,11 @@
         #content a {
             color: #1a73e8;
             text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+        
+        #content a:hover {
+            color: #0d47a1;
         }
         
         .footer-text {
@@ -176,30 +319,112 @@
         }
         
         .success-banner {
-            background: #0f9d58;
+            background: linear-gradient(135deg, #0f9d58, #0d7d47);
             color: white;
             padding: 15px;
-            border-radius: 5px;
+            border-radius: 8px;
             text-align: center;
             margin-top: 10px;
             display: none;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .success-banner.show {
             display: block;
         }
+        
+        .floating-helper {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #4285f4;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .floating-helper:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(66, 133, 244, 0.6);
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #4285f4, #34a853);
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+
+        .platform-specific {
+            display: none;
+        }
+
+        .platform-specific.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
     <div class="copy-container">
+        <div class="platform-selector">
+            <button class="platform-btn active" onclick="selectPlatform('all')" data-platform="all">
+                📱 All Platforms
+            </button>
+            <button class="platform-btn" onclick="selectPlatform('windows')" data-platform="windows">
+                🪟 Windows
+            </button>
+            <button class="platform-btn" onclick="selectPlatform('macos')" data-platform="macos">
+                🍎 macOS
+            </button>
+            <button class="platform-btn" onclick="selectPlatform('linux')" data-platform="linux">
+                🐧 Linux
+            </button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Steps</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">~30min</div>
+                <div class="stat-label">Setup Time</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3GB+</div>
+                <div class="stat-label">Disk Space</div>
+            </div>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
         <button class="copy-button" onclick="copyToClipboard()">
-            📋 Copy Entire Document for Google Docs
+            📋 Copy Complete Guide to Google Docs
         </button>
         <div class="success-banner" id="successBanner">
             ✅ Copied! Now open Google Docs and press Ctrl+V (Windows) or Cmd+V (Mac)
         </div>
         <p class="instruction">
-            Click the button above, then paste into a new Google Docs document
+            Select your platform above, then click to copy the entire guide
         </p>
     </div>
     
@@ -221,30 +446,36 @@
                 <li><strong>Tools:</strong> You will need a command-line tool (Command Prompt, Terminal, etc.)</li>
             </ul>
             
-            <h3>For Windows:</h3>
-            <ul>
-                <li><strong>OS:</strong> Windows 10 or later (64-bit)</li>
-                <li><strong>PowerShell 5.0 or newer</strong> (this comes pre-installed on Windows 10/11)</li>
-                <li><strong>Git for Windows</strong> (we will install this in the steps)</li>
-            </ul>
+            <div class="platform-specific windows-content">
+                <h3>For Windows:</h3>
+                <ul>
+                    <li><strong>OS:</strong> Windows 10 or later (64-bit)</li>
+                    <li><strong>PowerShell 5.0 or newer</strong> (this comes pre-installed on Windows 10/11)</li>
+                    <li><strong>Git for Windows</strong> (we will install this in the steps)</li>
+                </ul>
+            </div>
             
-            <h3>For macOS:</h3>
-            <ul>
-                <li><strong>OS:</strong> macOS version 10.14 (Mojave) or later</li>
-                <li><strong>Tools:</strong> You will need to install <strong>Xcode</strong> for iOS development (optional if you only want to develop for Android)</li>
-            </ul>
+            <div class="platform-specific macos-content">
+                <h3>For macOS:</h3>
+                <ul>
+                    <li><strong>OS:</strong> macOS version 10.14 (Mojave) or later</li>
+                    <li><strong>Tools:</strong> You will need to install <strong>Xcode</strong> for iOS development (optional if you only want to develop for Android)</li>
+                </ul>
+            </div>
             
-            <h3>For Linux (Ubuntu/Debian):</h3>
-            <ul>
-                <li><strong>OS:</strong> 64-bit version</li>
-                <li><strong>Libraries:</strong> You need a few command-line tools which we will install</li>
-            </ul>
+            <div class="platform-specific linux-content">
+                <h3>For Linux (Ubuntu/Debian):</h3>
+                <ul>
+                    <li><strong>OS:</strong> 64-bit version</li>
+                    <li><strong>Libraries:</strong> You need a few command-line tools which we will install</li>
+                </ul>
+            </div>
 
             <h2>Step 2: Install Git</h2>
             <p>Git is a version control system that Flutter uses behind the scenes.</p>
             <ul>
-                <li><strong>Windows:</strong> Go to git-scm.com. Download and run the installer. Use all the default settings.</li>
-                <li><strong>macOS & Linux:</strong> Git is often pre-installed. To check, open your terminal and type <code>git --version</code>. If it's not installed, it will prompt you to install it.</li>
+                <li class="platform-specific windows-content"><strong>Windows:</strong> Go to git-scm.com. Download and run the installer. Use all the default settings.</li>
+                <li class="platform-specific macos-content linux-content"><strong>macOS & Linux:</strong> Git is often pre-installed. To check, open your terminal and type <code>git --version</code>. If it's not installed, it will prompt you to install it.</li>
             </ul>
 
             <h2>Step 3: Download and Install Flutter SDK</h2>
@@ -258,8 +489,8 @@
             
             <h3>Extract the File:</h3>
             <ul>
-                <li><strong>Windows:</strong> Extract the downloaded .zip file to a location you prefer. A good place is <code>C:\src\flutter</code> (you might need to create the src folder).</li>
-                <li><strong>macOS/Linux:</strong> Extract the file to your desired location. A good place is your home directory. For example, you can extract it to <code>/Users/&lt;your_username&gt;/flutter</code> on macOS or <code>/home/&lt;your_username&gt;/flutter</code> on Linux.</li>
+                <li class="platform-specific windows-content"><strong>Windows:</strong> Extract the downloaded .zip file to a location you prefer. A good place is <code>C:\src\flutter</code> (you might need to create the src folder).</li>
+                <li class="platform-specific macos-content linux-content"><strong>macOS/Linux:</strong> Extract the file to your desired location. A good place is your home directory. For example, you can extract it to <code>/Users/&lt;your_username&gt;/flutter</code> on macOS or <code>/home/&lt;your_username&gt;/flutter</code> on Linux.</li>
             </ul>
             
             <div class="warning">
@@ -269,39 +500,43 @@
             <h2>Step 4: Add Flutter to Your Path</h2>
             <p>This tells your computer where to find the Flutter commands.</p>
             
-            <h3>For Windows:</h3>
-            <ol>
-                <li>Press the <strong>Windows key</strong>, type "env", and select <strong>"Edit the system environment variables"</strong></li>
-                <li>Click the <strong>"Environment Variables..."</strong> button at the bottom</li>
-                <li>In the lower "System variables" section, find and select the <strong>Path</strong> variable, then click <strong>"Edit..."</strong></li>
-                <li>Click <strong>"New"</strong> and add the full path to the <code>flutter\bin</code> folder. For example: <code>C:\src\flutter\bin</code></li>
-                <li>Click <strong>OK</strong> to close all the windows</li>
-            </ol>
+            <div class="platform-specific windows-content">
+                <h3>For Windows:</h3>
+                <ol>
+                    <li>Press the <strong>Windows key</strong>, type "env", and select <strong>"Edit the system environment variables"</strong></li>
+                    <li>Click the <strong>"Environment Variables..."</strong> button at the bottom</li>
+                    <li>In the lower "System variables" section, find and select the <strong>Path</strong> variable, then click <strong>"Edit..."</strong></li>
+                    <li>Click <strong>"New"</strong> and add the full path to the <code>flutter\bin</code> folder. For example: <code>C:\src\flutter\bin</code></li>
+                    <li>Click <strong>OK</strong> to close all the windows</li>
+                </ol>
+            </div>
             
-            <h3>For macOS & Linux:</h3>
-            <ol>
-                <li>Open your <strong>Terminal</strong></li>
-                <li>Determine which shell you are using. Run <code>echo $SHELL</code>
-                    <ul>
-                        <li>If it says <code>/bin/zsh</code> (common on newer macOS), you need to edit <code>~/.zshrc</code></li>
-                        <li>If it says <code>/bin/bash</code>, you need to edit <code>~/.bashrc</code> or <code>~/.bash_profile</code></li>
-                    </ul>
-                </li>
-                <li>Open the file in a text editor. For example, for ZSH:
-                    <div class="code-block">nano ~/.zshrc</div>
-                </li>
-                <li>At the end of the file, add this line (replace /path/to/ with your actual path):
-                    <div class="code-block">export PATH="$PATH:/path/to/flutter/bin"</div>
-                    <ul>
-                        <li><em>Example for macOS:</em> <code>export PATH="$PATH:/Users/your_username/flutter/bin"</code></li>
-                        <li><em>Example for Linux:</em> <code>export PATH="$PATH:/home/your_username/flutter/bin"</code></li>
-                    </ul>
-                </li>
-                <li>Save the file (In nano: Press Ctrl+X, then Y, then Enter)</li>
-                <li>Run this command in the terminal to reload the file, or simply close and reopen the terminal:
-                    <div class="code-block">source ~/.zshrc  # or source ~/.bashrc</div>
-                </li>
-            </ol>
+            <div class="platform-specific macos-content linux-content">
+                <h3>For macOS & Linux:</h3>
+                <ol>
+                    <li>Open your <strong>Terminal</strong></li>
+                    <li>Determine which shell you are using. Run <code>echo $SHELL</code>
+                        <ul>
+                            <li>If it says <code>/bin/zsh</code> (common on newer macOS), you need to edit <code>~/.zshrc</code></li>
+                            <li>If it says <code>/bin/bash</code>, you need to edit <code>~/.bashrc</code> or <code>~/.bash_profile</code></li>
+                        </ul>
+                    </li>
+                    <li>Open the file in a text editor. For example, for ZSH:
+                        <div class="code-block">nano ~/.zshrc</div>
+                    </li>
+                    <li>At the end of the file, add this line (replace /path/to/ with your actual path):
+                        <div class="code-block">export PATH="$PATH:/path/to/flutter/bin"</div>
+                        <ul>
+                            <li><em>Example for macOS:</em> <code>export PATH="$PATH:/Users/your_username/flutter/bin"</code></li>
+                            <li><em>Example for Linux:</em> <code>export PATH="$PATH:/home/your_username/flutter/bin"</code></li>
+                        </ul>
+                    </li>
+                    <li>Save the file (In nano: Press Ctrl+X, then Y, then Enter)</li>
+                    <li>Run this command in the terminal to reload the file, or simply close and reopen the terminal:
+                        <div class="code-block">source ~/.zshrc  # or source ~/.bashrc</div>
+                    </li>
+                </ol>
+            </div>
 
             <h2>Step 5: Run Flutter Doctor</h2>
             <p>This is the most important command! It checks your system and tells you what's installed and what's missing.</p>
@@ -332,12 +567,14 @@
                 </li>
             </ul>
             
-            <h3>2. Install Xcode (for iOS development on macOS only):</h3>
-            <ul>
-                <li>Open the <strong>App Store</strong> on your Mac</li>
-                <li>Search for <strong>"Xcode"</strong> and install it. This is a very large download (several GB)</li>
-                <li>After installation, open it once to agree to the license and complete the installation of additional components</li>
-            </ul>
+            <div class="platform-specific macos-content">
+                <h3>2. Install Xcode (for iOS development on macOS only):</h3>
+                <ul>
+                    <li>Open the <strong>App Store</strong> on your Mac</li>
+                    <li>Search for <strong>"Xcode"</strong> and install it. This is a very large download (several GB)</li>
+                    <li>After installation, open it once to agree to the license and complete the installation of additional components</li>
+                </ul>
+            </div>
             
             <h3>3. Install an Editor (Highly Recommended):</h3>
             <p>You can use any text editor, but an <strong>IDE (Integrated Development Environment)</strong> will make your life much easier with features like code completion, debugging, and emulator management.</p>
@@ -371,15 +608,17 @@
                 <li>Finish the setup and click the <strong>Play</strong> button to start the emulator</li>
             </ol>
             
-            <h3>For iOS (iOS Simulator - macOS only):</h3>
-            <ol>
-                <li>Open <strong>Xcode</strong></li>
-                <li>Go to <strong>Xcode > Preferences > Components</strong> to install a simulator version if needed</li>
-                <li>Open your terminal and run:
-                    <div class="code-block">open -a Simulator</div>
-                    This will launch the iOS simulator
-                </li>
-            </ol>
+            <div class="platform-specific macos-content">
+                <h3>For iOS (iOS Simulator - macOS only):</h3>
+                <ol>
+                    <li>Open <strong>Xcode</strong></li>
+                    <li>Go to <strong>Xcode > Preferences > Components</strong> to install a simulator version if needed</li>
+                    <li>Open your terminal and run:
+                        <div class="code-block">open -a Simulator</div>
+                        This will launch the iOS simulator
+                    </li>
+                </ol>
+            </div>
 
             <h2>Step 8: Create and Run Your First Flutter App</h2>
             <p>You're all set! Let's test it.</p>
@@ -418,13 +657,43 @@
         </div>
     </div>
 
+    <div class="floating-helper" onclick="scrollToTop()">
+        ⬆️ Back to Top
+    </div>
+
     <script>
+        let selectedPlatform = 'all';
+
+        function selectPlatform(platform) {
+            selectedPlatform = platform;
+            
+            // Update button states
+            document.querySelectorAll('.platform-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-platform="${platform}"]`).classList.add('active');
+            
+            // Show/hide platform-specific content
+            const allContent = document.querySelectorAll('.platform-specific');
+            
+            if (platform === 'all') {
+                allContent.forEach(el => el.classList.add('active'));
+            } else {
+                allContent.forEach(el => {
+                    if (el.classList.contains(`${platform}-content`)) {
+                        el.classList.add('active');
+                    } else {
+                        el.classList.remove('active');
+                    }
+                });
+            }
+        }
+
         function copyToClipboard() {
             const content = document.getElementById('content');
             const button = document.querySelector('.copy-button');
             const banner = document.getElementById('successBanner');
             
-            // Select the content
             const range = document.createRange();
             range.selectNode(content);
             const selection = window.getSelection();
@@ -432,7 +701,6 @@
             selection.addRange(range);
             
             try {
-                // Copy using the old method for better compatibility
                 const successful = document.execCommand('copy');
                 
                 if (successful) {
@@ -440,10 +708,14 @@
                     button.textContent = '✅ Copied Successfully!';
                     banner.classList.add('show');
                     
+                    // Animate progress bar
+                    document.getElementById('progressFill').style.width = '100%';
+                    
                     setTimeout(() => {
                         button.classList.remove('success');
-                        button.textContent = '📋 Copy Entire Document for Google Docs';
+                        button.textContent = '📋 Copy Complete Guide to Google Docs';
                         banner.classList.remove('show');
+                        document.getElementById('progressFill').style.width = '0%';
                     }, 4000);
                 } else {
                     alert('Please manually select the text and press Ctrl+C (or Cmd+C) to copy');
@@ -454,6 +726,31 @@
             
             selection.removeAllRanges();
         }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.getElementById('scrollProgress');
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / docHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        // Initialize with all platforms shown
+        selectPlatform('all');
+
+        // Add smooth hover effects to headings
+        document.querySelectorAll('#content h2').forEach(heading => {
+            heading.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
     </script>
 </body>
 </html>
