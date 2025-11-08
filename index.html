@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter Installation Guide - Google Docs Ready</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #f5f5f5;
+        }
+        
+        .copy-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .copy-button {
+            background: #4285f4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 15px;
+            transition: background 0.3s;
+        }
+        
+        .copy-button:hover {
+            background: #3367d6;
+        }
+        
+        .copy-button.success {
+            background: #0f9d58;
+        }
+        
+        .instruction {
+            text-align: center;
+            color: #5f6368;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .document {
+            background: white;
+            padding: 50px 60px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            line-height: 1.8;
+            font-size: 11pt;
+        }
+        
+        #content h1 {
+            font-size: 24pt;
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        #content .subtitle {
+            text-align: center;
+            font-size: 12pt;
+            color: #5f6368;
+            margin-bottom: 30px;
+        }
+        
+        #content h2 {
+            font-size: 16pt;
+            color: #1a73e8;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            border-bottom: 2px solid #1a73e8;
+            padding-bottom: 5px;
+        }
+        
+        #content h3 {
+            font-size: 13pt;
+            color: #5f6368;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        #content h4 {
+            font-size: 12pt;
+            color: #202124;
+            margin-top: 12px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        
+        #content p {
+            margin: 10px 0;
+            color: #202124;
+        }
+        
+        #content ul, #content ol {
+            margin: 10px 0;
+            padding-left: 30px;
+        }
+        
+        #content li {
+            margin: 6px 0;
+            color: #202124;
+        }
+        
+        #content code {
+            background: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+            color: #d93025;
+        }
+        
+        #content .code-block {
+            background: #f8f9fa;
+            border: 1px solid #dadce0;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+            color: #202124;
+            overflow-x: auto;
+        }
+        
+        #content .warning {
+            background: #fef7e0;
+            border-left: 4px solid #f9ab00;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        #content .info-box {
+            background: #e8f0fe;
+            border-left: 4px solid #1a73e8;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        #content strong {
+            font-weight: bold;
+            color: #202124;
+        }
+        
+        #content em {
+            font-style: italic;
+        }
+        
+        #content a {
+            color: #1a73e8;
+            text-decoration: underline;
+        }
+        
+        .footer-text {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #dadce0;
+            color: #5f6368;
+            font-size: 10pt;
+        }
+        
+        .success-banner {
+            background: #0f9d58;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .success-banner.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="copy-container">
+        <button class="copy-button" onclick="copyToClipboard()">
+            📋 Copy Entire Document for Google Docs
+        </button>
+        <div class="success-banner" id="successBanner">
+            ✅ Copied! Now open Google Docs and press Ctrl+V (Windows) or Cmd+V (Mac)
+        </div>
+        <p class="instruction">
+            Click the button above, then paste into a new Google Docs document
+        </p>
+    </div>
+    
+    <div class="document">
+        <div id="content">
+            <h1>Complete Flutter Installation Guide for Beginners</h1>
+            <p class="subtitle">Step-by-Step Instructions • Created by Nicolette Mashaba</p>
+
+            <div class="info-box">
+                <h2>Before We Start: What is Flutter?</h2>
+                <p>Flutter is a free and open-source toolkit from Google for building beautiful, native-compiled applications for <strong>mobile (iOS & Android), web, and desktop</strong> from a single codebase. You write your code once in the Dart language, and Flutter builds it for all these different platforms.</p>
+            </div>
+
+            <h2>Step 1: Check Your System Requirements</h2>
+            
+            <h3>For All Platforms:</h3>
+            <ul>
+                <li><strong>Disk Space:</strong> At least 2-3 GB of free space (more for IDEs and SDKs)</li>
+                <li><strong>Tools:</strong> You will need a command-line tool (Command Prompt, Terminal, etc.)</li>
+            </ul>
+            
+            <h3>For Windows:</h3>
+            <ul>
+                <li><strong>OS:</strong> Windows 10 or later (64-bit)</li>
+                <li><strong>PowerShell 5.0 or newer</strong> (this comes pre-installed on Windows 10/11)</li>
+                <li><strong>Git for Windows</strong> (we will install this in the steps)</li>
+            </ul>
+            
+            <h3>For macOS:</h3>
+            <ul>
+                <li><strong>OS:</strong> macOS version 10.14 (Mojave) or later</li>
+                <li><strong>Tools:</strong> You will need to install <strong>Xcode</strong> for iOS development (optional if you only want to develop for Android)</li>
+            </ul>
+            
+            <h3>For Linux (Ubuntu/Debian):</h3>
+            <ul>
+                <li><strong>OS:</strong> 64-bit version</li>
+                <li><strong>Libraries:</strong> You need a few command-line tools which we will install</li>
+            </ul>
+
+            <h2>Step 2: Install Git</h2>
+            <p>Git is a version control system that Flutter uses behind the scenes.</p>
+            <ul>
+                <li><strong>Windows:</strong> Go to git-scm.com. Download and run the installer. Use all the default settings.</li>
+                <li><strong>macOS & Linux:</strong> Git is often pre-installed. To check, open your terminal and type <code>git --version</code>. If it's not installed, it will prompt you to install it.</li>
+            </ul>
+
+            <h2>Step 3: Download and Install Flutter SDK</h2>
+            <p>This is the core Flutter software.</p>
+            
+            <h3>Download the SDK:</h3>
+            <ol>
+                <li>Go to the official Flutter website: https://docs.flutter.dev/get-started/install</li>
+                <li>Click the button to download the Flutter SDK for your operating system (Windows, macOS, or Linux)</li>
+            </ol>
+            
+            <h3>Extract the File:</h3>
+            <ul>
+                <li><strong>Windows:</strong> Extract the downloaded .zip file to a location you prefer. A good place is <code>C:\src\flutter</code> (you might need to create the src folder).</li>
+                <li><strong>macOS/Linux:</strong> Extract the file to your desired location. A good place is your home directory. For example, you can extract it to <code>/Users/&lt;your_username&gt;/flutter</code> on macOS or <code>/home/&lt;your_username&gt;/flutter</code> on Linux.</li>
+            </ul>
+            
+            <div class="warning">
+                <strong>⚠️ Important:</strong> Do <strong>not</strong> extract Flutter to a folder that requires special permissions (like <code>C:\Program Files\</code> on Windows).
+            </div>
+
+            <h2>Step 4: Add Flutter to Your Path</h2>
+            <p>This tells your computer where to find the Flutter commands.</p>
+            
+            <h3>For Windows:</h3>
+            <ol>
+                <li>Press the <strong>Windows key</strong>, type "env", and select <strong>"Edit the system environment variables"</strong></li>
+                <li>Click the <strong>"Environment Variables..."</strong> button at the bottom</li>
+                <li>In the lower "System variables" section, find and select the <strong>Path</strong> variable, then click <strong>"Edit..."</strong></li>
+                <li>Click <strong>"New"</strong> and add the full path to the <code>flutter\bin</code> folder. For example: <code>C:\src\flutter\bin</code></li>
+                <li>Click <strong>OK</strong> to close all the windows</li>
+            </ol>
+            
+            <h3>For macOS & Linux:</h3>
+            <ol>
+                <li>Open your <strong>Terminal</strong></li>
+                <li>Determine which shell you are using. Run <code>echo $SHELL</code>
+                    <ul>
+                        <li>If it says <code>/bin/zsh</code> (common on newer macOS), you need to edit <code>~/.zshrc</code></li>
+                        <li>If it says <code>/bin/bash</code>, you need to edit <code>~/.bashrc</code> or <code>~/.bash_profile</code></li>
+                    </ul>
+                </li>
+                <li>Open the file in a text editor. For example, for ZSH:
+                    <div class="code-block">nano ~/.zshrc</div>
+                </li>
+                <li>At the end of the file, add this line (replace /path/to/ with your actual path):
+                    <div class="code-block">export PATH="$PATH:/path/to/flutter/bin"</div>
+                    <ul>
+                        <li><em>Example for macOS:</em> <code>export PATH="$PATH:/Users/your_username/flutter/bin"</code></li>
+                        <li><em>Example for Linux:</em> <code>export PATH="$PATH:/home/your_username/flutter/bin"</code></li>
+                    </ul>
+                </li>
+                <li>Save the file (In nano: Press Ctrl+X, then Y, then Enter)</li>
+                <li>Run this command in the terminal to reload the file, or simply close and reopen the terminal:
+                    <div class="code-block">source ~/.zshrc  # or source ~/.bashrc</div>
+                </li>
+            </ol>
+
+            <h2>Step 5: Run Flutter Doctor</h2>
+            <p>This is the most important command! It checks your system and tells you what's installed and what's missing.</p>
+            
+            <ol>
+                <li>Open a <strong>new</strong> command prompt or terminal window (this is crucial so it picks up the new PATH)</li>
+                <li>Type the following command and press Enter:
+                    <div class="code-block">flutter doctor</div>
+                </li>
+                <li>The tool will run a diagnostic and show you a report</li>
+            </ol>
+            
+            <p><strong>✅ Checkmarks</strong> mean everything is good.<br>
+            <strong>❌ Crosses/X marks</strong> mean something is missing.<br>
+            <strong>❗ Exclamation marks</strong> mean something is installed but needs configuration.</p>
+
+            <h2>Step 6: Install the Missing Dependencies (Based on flutter doctor)</h2>
+            <p>Follow the instructions from the <code>flutter doctor</code> output.</p>
+            
+            <h3>1. Install the Android Toolchain (for Android development):</h3>
+            <ul>
+                <li><strong>Install Android Studio:</strong> Go to developer.android.com/studio and download/install it</li>
+                <li><strong>During installation:</strong> The wizard will ask which packages to install. Make sure <strong>Android SDK</strong>, <strong>Android SDK Platform</strong>, and <strong>Android Virtual Device</strong> are selected</li>
+                <li><strong>Launch Android Studio:</strong> Once it opens, go through the setup wizard. It will install the latest Android SDK and other required components</li>
+                <li><strong>Accept Android Licenses:</strong> Go back to your terminal/command prompt and run:
+                    <div class="code-block">flutter doctor --android-licenses</div>
+                    Press <code>y</code> for every license prompt
+                </li>
+            </ul>
+            
+            <h3>2. Install Xcode (for iOS development on macOS only):</h3>
+            <ul>
+                <li>Open the <strong>App Store</strong> on your Mac</li>
+                <li>Search for <strong>"Xcode"</strong> and install it. This is a very large download (several GB)</li>
+                <li>After installation, open it once to agree to the license and complete the installation of additional components</li>
+            </ul>
+            
+            <h3>3. Install an Editor (Highly Recommended):</h3>
+            <p>You can use any text editor, but an <strong>IDE (Integrated Development Environment)</strong> will make your life much easier with features like code completion, debugging, and emulator management.</p>
+            
+            <h4>Android Studio / IntelliJ IDEA:</h4>
+            <ol>
+                <li>Open Android Studio/IntelliJ</li>
+                <li>Go to <strong>Preferences/Settings > Plugins</strong></li>
+                <li>Search for "Flutter", install it, and it will prompt you to install the Dart plugin as well</li>
+                <li>Restart the IDE</li>
+            </ol>
+            
+            <h4>Visual Studio Code (VS Code):</h4>
+            <ol>
+                <li>Download and install VS Code from code.visualstudio.com</li>
+                <li>Open VS Code</li>
+                <li>Go to the <strong>Extensions</strong> tab (Ctrl+Shift+X / Cmd+Shift+X)</li>
+                <li>Search for and install the <strong>"Flutter"</strong> extension</li>
+            </ol>
+
+            <h2>Step 7: Set Up an Emulator/Simulator (To Run Your Apps)</h2>
+            <p>You need a device to test on. You can use a virtual one on your computer.</p>
+            
+            <h3>For Android (Android Emulator):</h3>
+            <ol>
+                <li>Open <strong>Android Studio</strong></li>
+                <li>Go to <strong>Tools > Device Manager</strong></li>
+                <li>Click <strong>"Create Device"</strong></li>
+                <li>Select a phone definition (e.g., Pixel 5) and click <strong>Next</strong></li>
+                <li>Download a system image (e.g., Android API 34, Tiramisu) and click <strong>Next</strong></li>
+                <li>Finish the setup and click the <strong>Play</strong> button to start the emulator</li>
+            </ol>
+            
+            <h3>For iOS (iOS Simulator - macOS only):</h3>
+            <ol>
+                <li>Open <strong>Xcode</strong></li>
+                <li>Go to <strong>Xcode > Preferences > Components</strong> to install a simulator version if needed</li>
+                <li>Open your terminal and run:
+                    <div class="code-block">open -a Simulator</div>
+                    This will launch the iOS simulator
+                </li>
+            </ol>
+
+            <h2>Step 8: Create and Run Your First Flutter App</h2>
+            <p>You're all set! Let's test it.</p>
+            
+            <ol>
+                <li>In your terminal, navigate to where you want to create your project and run:
+                    <div class="code-block">flutter create my_first_app</div>
+                    (This creates a new folder called my_first_app with a simple demo app inside.)
+                </li>
+                <li>Navigate into the project folder:
+                    <div class="code-block">cd my_first_app</div>
+                </li>
+                <li>Ensure your emulator is running or a physical phone is connected via USB</li>
+                <li>Run the app:
+                    <div class="code-block">flutter run</div>
+                </li>
+            </ol>
+            
+            <p>After a moment, you should see the default Flutter counter app running on your emulator/device. <strong>Congratulations, you have successfully installed Flutter!</strong> 🎉</p>
+
+            <div class="info-box">
+                <h2>Next Steps</h2>
+                <p>Now that Flutter is installed, here are some great resources to continue learning:</p>
+                <ul>
+                    <li>Official Flutter Codelabs (https://docs.flutter.dev/codelabs) - Hands-on tutorials</li>
+                    <li>Flutter Documentation (https://docs.flutter.dev/) - Complete reference guide</li>
+                    <li>Flutter YouTube Channel - Video tutorials</li>
+                </ul>
+                <p><strong>Happy coding! 🚀</strong></p>
+            </div>
+
+            <div class="footer-text">
+                <p><strong>Document Created by Nicolette Mashaba</strong></p>
+                <p>Flutter Installation Guide for Beginners • Good luck on your development journey!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const content = document.getElementById('content');
+            const button = document.querySelector('.copy-button');
+            const banner = document.getElementById('successBanner');
+            
+            // Select the content
+            const range = document.createRange();
+            range.selectNode(content);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            
+            try {
+                // Copy using the old method for better compatibility
+                const successful = document.execCommand('copy');
+                
+                if (successful) {
+                    button.classList.add('success');
+                    button.textContent = '✅ Copied Successfully!';
+                    banner.classList.add('show');
+                    
+                    setTimeout(() => {
+                        button.classList.remove('success');
+                        button.textContent = '📋 Copy Entire Document for Google Docs';
+                        banner.classList.remove('show');
+                    }, 4000);
+                } else {
+                    alert('Please manually select the text and press Ctrl+C (or Cmd+C) to copy');
+                }
+            } catch (err) {
+                alert('Please manually select the text and press Ctrl+C (or Cmd+C) to copy');
+            }
+            
+            selection.removeAllRanges();
+        }
+    </script>
+</body>
+</html>
