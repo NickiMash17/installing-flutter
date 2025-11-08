@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flutter Installation Guide - Google Docs Ready</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Base styles */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
         
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            color: #333;
         }
         
         .copy-container {
@@ -44,15 +48,19 @@
         .platform-btn {
             background: #f1f3f4;
             border: 2px solid #dadce0;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border-radius: 8px;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             font-size: 14px;
             flex: 1;
             min-width: 120px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
         }
         
         .platform-btn:hover {
@@ -64,6 +72,46 @@
             background: #4285f4;
             color: white;
             border-color: #4285f4;
+        }
+        
+        .platform-icon {
+            font-size: 24px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .windows-icon {
+            color: #0078d7;
+        }
+        
+        .macos-icon {
+            color: #000000;
+        }
+        
+        .linux-icon {
+            color: #ff6600;
+        }
+        
+        .all-platforms-icon {
+            color: #34a853;
+        }
+        
+        .platform-btn.active .windows-icon {
+            color: white;
+        }
+        
+        .platform-btn.active .macos-icon {
+            color: white;
+        }
+        
+        .platform-btn.active .linux-icon {
+            color: white;
+        }
+        
+        .platform-btn.active .all-platforms-icon {
+            color: white;
         }
         
         .copy-button {
@@ -79,6 +127,10 @@
             margin-bottom: 15px;
             transition: all 0.3s ease;
             box-shadow: 0 2px 10px rgba(66, 133, 244, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         .copy-button:hover {
@@ -367,6 +419,9 @@
             z-index: 1000;
             font-size: 14px;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .floating-helper:hover {
@@ -404,9 +459,14 @@
             }
             
             .platform-btn {
-                padding: 8px 10px;
+                padding: 10px 12px;
                 font-size: 13px;
                 min-width: 100px;
+            }
+            
+            .platform-icon {
+                font-size: 22px;
+                height: 26px;
             }
             
             .stats {
@@ -463,9 +523,14 @@
             }
             
             .platform-btn {
-                padding: 6px 8px;
+                padding: 8px 10px;
                 font-size: 12px;
                 min-width: 80px;
+            }
+            
+            .platform-icon {
+                font-size: 20px;
+                height: 24px;
             }
             
             .copy-button {
@@ -513,16 +578,28 @@
     <div class="copy-container">
         <div class="platform-selector">
             <button class="platform-btn active" onclick="selectPlatform('all')" data-platform="all">
-                📱 All Platforms
+                <div class="platform-icon all-platforms-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                All Platforms
             </button>
             <button class="platform-btn" onclick="selectPlatform('windows')" data-platform="windows">
-                🪟 Windows
+                <div class="platform-icon windows-icon">
+                    <i class="fab fa-windows"></i>
+                </div>
+                Windows
             </button>
             <button class="platform-btn" onclick="selectPlatform('macos')" data-platform="macos">
-                🍎 macOS
+                <div class="platform-icon macos-icon">
+                    <i class="fab fa-apple"></i>
+                </div>
+                macOS
             </button>
             <button class="platform-btn" onclick="selectPlatform('linux')" data-platform="linux">
-                🐧 Linux
+                <div class="platform-icon linux-icon">
+                    <i class="fab fa-linux"></i>
+                </div>
+                Linux
             </button>
         </div>
         
@@ -546,10 +623,11 @@
         </div>
         
         <button class="copy-button" onclick="copyToClipboard()">
-            📋 Copy Complete Guide to Google Docs
+            <i class="far fa-copy"></i>
+            Copy Complete Guide to Google Docs
         </button>
         <div class="success-banner" id="successBanner">
-            ✅ Copied! Now open Google Docs and press Ctrl+V (Windows) or Cmd+V (Mac)
+            <i class="fas fa-check-circle"></i> Copied! Now open Google Docs and press Ctrl+V (Windows) or Cmd+V (Mac)
         </div>
         <p class="instruction">
             Select your platform above, then click to copy the entire guide
@@ -786,7 +864,7 @@
     </div>
 
     <div class="floating-helper" onclick="scrollToTop()">
-        ⬆️ Back to Top
+        <i class="fas fa-arrow-up"></i> Back to Top
     </div>
 
     <script>
@@ -833,7 +911,7 @@
                 
                 if (successful) {
                     button.classList.add('success');
-                    button.textContent = '✅ Copied Successfully!';
+                    button.innerHTML = '<i class="fas fa-check-circle"></i> Copied Successfully!';
                     banner.classList.add('show');
                     
                     // Animate progress bar
@@ -841,7 +919,7 @@
                     
                     setTimeout(() => {
                         button.classList.remove('success');
-                        button.textContent = '📋 Copy Complete Guide to Google Docs';
+                        button.innerHTML = '<i class="far fa-copy"></i> Copy Complete Guide to Google Docs';
                         banner.classList.remove('show');
                         document.getElementById('progressFill').style.width = '0%';
                     }, 4000);
