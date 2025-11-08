@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flutter Installation Guide - Google Docs Ready</title>
     <style>
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: Arial, sans-serif;
             max-width: 900px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
@@ -17,7 +22,7 @@
         .copy-container {
             background: white;
             border-radius: 10px;
-            padding: 30px;
+            padding: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             margin-bottom: 20px;
             transition: transform 0.3s ease;
@@ -33,17 +38,21 @@
             gap: 10px;
             margin-bottom: 20px;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         .platform-btn {
             background: #f1f3f4;
             border: 2px solid #dadce0;
-            padding: 10px 20px;
+            padding: 10px 15px;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 500;
             transition: all 0.3s ease;
             font-size: 14px;
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
         }
         
         .platform-btn:hover {
@@ -61,7 +70,7 @@
             background: linear-gradient(135deg, #4285f4, #34a853);
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 15px 20px;
             font-size: 16px;
             font-weight: bold;
             border-radius: 8px;
@@ -115,10 +124,14 @@
             padding: 15px;
             background: #f8f9fa;
             border-radius: 8px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .stat-item {
             text-align: center;
+            flex: 1;
+            min-width: 80px;
         }
         
         .stat-number {
@@ -135,12 +148,13 @@
         
         .document {
             background: white;
-            padding: 50px 60px;
+            padding: 30px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             border-radius: 10px;
             line-height: 1.8;
             font-size: 11pt;
             position: relative;
+            overflow-wrap: break-word;
         }
         
         .document::before {
@@ -154,7 +168,7 @@
         }
         
         #content h1 {
-            font-size: 24pt;
+            font-size: 20pt;
             color: #1a73e8;
             text-align: center;
             margin-bottom: 10px;
@@ -169,7 +183,7 @@
         
         #content .subtitle {
             text-align: center;
-            font-size: 12pt;
+            font-size: 11pt;
             color: #5f6368;
             margin-bottom: 30px;
         }
@@ -214,7 +228,7 @@
         
         #content ul, #content ol {
             margin: 10px 0;
-            padding-left: 30px;
+            padding-left: 20px;
         }
         
         #content li {
@@ -236,6 +250,7 @@
             color: #d93025;
             cursor: pointer;
             transition: all 0.2s ease;
+            word-break: break-all;
         }
         
         #content code:hover {
@@ -340,11 +355,11 @@
         
         .floating-helper {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             background: #4285f4;
             color: white;
-            padding: 15px 20px;
+            padding: 12px 16px;
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(66, 133, 244, 0.4);
             cursor: pointer;
@@ -376,6 +391,119 @@
 
         .platform-specific.active {
             display: block;
+        }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .copy-container {
+                padding: 15px;
+            }
+            
+            .platform-btn {
+                padding: 8px 10px;
+                font-size: 13px;
+                min-width: 100px;
+            }
+            
+            .stats {
+                padding: 10px;
+            }
+            
+            .stat-number {
+                font-size: 20px;
+            }
+            
+            .document {
+                padding: 20px;
+            }
+            
+            #content h1 {
+                font-size: 18pt;
+            }
+            
+            #content h2 {
+                font-size: 15pt;
+            }
+            
+            #content h3 {
+                font-size: 12pt;
+            }
+            
+            #content h4 {
+                font-size: 11pt;
+            }
+            
+            #content ul, #content ol {
+                padding-left: 15px;
+            }
+            
+            .floating-helper {
+                bottom: 15px;
+                right: 15px;
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            .copy-container {
+                padding: 12px;
+            }
+            
+            .platform-selector {
+                gap: 5px;
+            }
+            
+            .platform-btn {
+                padding: 6px 8px;
+                font-size: 12px;
+                min-width: 80px;
+            }
+            
+            .copy-button {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+            
+            .document {
+                padding: 15px;
+            }
+            
+            #content h1 {
+                font-size: 16pt;
+            }
+            
+            #content h2 {
+                font-size: 14pt;
+            }
+            
+            #content h3 {
+                font-size: 11pt;
+            }
+            
+            #content h4 {
+                font-size: 10pt;
+            }
+            
+            #content .code-block {
+                padding: 10px;
+                font-size: 9pt;
+            }
+            
+            .floating-helper {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
